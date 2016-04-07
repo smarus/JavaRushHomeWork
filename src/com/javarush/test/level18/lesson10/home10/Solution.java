@@ -13,8 +13,7 @@ package com.javarush.test.level18.lesson10.home10;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.Collections;
 
 public class Solution
 {
@@ -22,45 +21,28 @@ public class Solution
     {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         ArrayList<String> files = new ArrayList<String>();
-        int index = 0;
-        while (true)
-        {
-            String filename = reader.readLine();
-            if (filename.equals("end"))
-                break;
-            else
-            {
-                files.add(filename);
-                index++;
-            }
-        }
-        String truefilename = files.get(0);
-        int tamga = truefilename.indexOf(".part");
-        String forOutput = truefilename.substring(0, tamga);
-        FileOutputStream fileOutputStream = new FileOutputStream(forOutput,true);
-        TreeMap<Integer,String> map = new TreeMap<>();
-        for (int i = 0; i <files.size() ; i++)
-        {
-           map.put(Integer.parseInt(String.valueOf(files.get(i).charAt(files.get(i).length()-1))),files.get(i));
-        }
-        FileInputStream fileInputStream = null;
-        for(Map.Entry<Integer,String>pair :map.entrySet())
-        {
-            fileInputStream= new FileInputStream(pair.getValue());
-            byte [] bytes = new byte[fileInputStream.available()];
-            while (fileInputStream.available()>0)
-            {
+        String fileName;
+        while (!(fileName = reader.readLine()).equals("end"))
+            files.add(fileName);
 
-                fileInputStream.read(bytes);
-                fileOutputStream.write(bytes);
-            }
-        }
-
-        fileInputStream.close();
-        fileOutputStream.close();
         reader.close();
+
+        Collections.sort(files);
+        String [] truefilename = files.get(0).split(".part");
+        String forOutput = truefilename[0];
+
+        FileOutputStream fileOutputStream = new FileOutputStream(forOutput,true);
+       FileInputStream fileInputStream ;
+        byte [] bytes;
+        for(String afilename:files)
+        {
+           fileInputStream= new FileInputStream(afilename);
+            bytes = new byte[fileInputStream.available()];
+            fileInputStream.read(bytes);
+            fileInputStream.close();
+            fileOutputStream.write(bytes);
         }
-
-
+       fileOutputStream.close();
+        }
     }
 
