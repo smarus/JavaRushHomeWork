@@ -24,8 +24,68 @@ id productName price quantity
 19847983Куртка для сноубордистов, разм10173.991234
 */
 
+import java.io.*;
+import java.util.ArrayList;
+
 public class Solution {
-    public static void main(String[] args) {
+    static ArrayList<String> list = new ArrayList<>();
+    public static void main(String[] args) throws IOException
+    {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String filename = reader.readLine();
+        reader.close();
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(filename));
+        while (bufferedReader.ready()) {
+           String file = bufferedReader.readLine();
+            list.add(file);
+        }
+        bufferedReader.close();
+        if (args[0].equals("-u"))
+        {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
+            for (int i = 0; i <list.size() ; i++)
+            {
+                String file = list.get(i);
+                if (file.equals(""))
+                continue;
+            else {
+                    int id = Integer.parseInt(file.substring(0, 8).replaceAll(" ", ""));
+                    if (args[1].equals(id + ""))
+                    {
+                        String productname = args[2];
+                        for (int l = 3; l < args.length - 2; l++)
+                            productname += " " + args[l];
+                        writer.write(String.format("%-8.8s%-30.30s%-8.8s%-4.4s%n", String.valueOf(id), productname, args[args.length - 2], args[args.length - 1]));
+                    }
+                    else
+                        writer.write(String.format("%s%n",list.get(i)));
+                }
+
+
+            }
+            writer.close();
+        }
+        else if (args[0].equals("-d"))
+        {
+            BufferedWriter fwriter = new BufferedWriter(new FileWriter(filename));
+            for (int i = 0; i <list.size() ; i++)
+            {
+                String file = list.get(i);
+                System.out.println(file);
+                if (file.equals(""))
+                    continue;
+                else
+                {
+                    String id = file.substring(0,8).replaceAll(" ","");
+                    if (!(id.equals(args[1])))
+                        fwriter.write(String.format("%s%n",file));                   {
+                    }
+
+
+                }
+            }
+         fwriter.close();
+        }
 
     }
 }

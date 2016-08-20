@@ -22,7 +22,44 @@ id productName price quantity
 19847983Куртка для сноубордистов, разм10173.991234
 */
 
+import java.io.*;
+import java.util.ArrayList;
+
 public class Solution {
+    static ArrayList<String> list = new ArrayList<>();
     public static void main(String[] args) throws Exception {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String filename = reader.readLine();
+        reader.close();
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(filename));
+        int max = 0;
+        if (args[0].equals("-c")){
+        while (bufferedReader.ready()) {
+            String partFile = bufferedReader.readLine();
+            list.add(partFile);
+            int y = Integer.parseInt(partFile.substring(0, 8).replaceAll(" ", ""));
+            if (y>max)
+                max=y;
+
+        }max++;
+         bufferedReader.close();
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filename));
+            for (int i = 0; i <list.size() ; i++)
+            {
+               if (list.get(i).equals(""))
+                continue;
+                bufferedWriter.write(String.format("%s%n", list.get(i)));
+            }
+            String productname = args[1];
+            for (int l = 2; l < args.length-2; l++)
+                productname +=" " + args[l];
+            bufferedWriter.write(String.format("%-8.8s%-30.30s%-8.8s%-4.4s%n",String.valueOf(max),productname,args[args.length-2],args[args.length-1]));
+            bufferedWriter.close();
+            }
+
+        }
+
+
+
     }
-}
+

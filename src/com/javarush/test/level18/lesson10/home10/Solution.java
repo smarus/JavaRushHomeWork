@@ -22,22 +22,21 @@ public class Solution
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         ArrayList<String> files = new ArrayList<String>();
         String fileName;
+
         while (!(fileName = reader.readLine()).equals("end"))
             files.add(fileName);
 
         reader.close();
-
         Collections.sort(files);
+
         String [] truefilename = files.get(0).split(".part");
         String forOutput = truefilename[0];
 
         FileOutputStream fileOutputStream = new FileOutputStream(forOutput,true);
-       FileInputStream fileInputStream ;
-        byte [] bytes;
         for(String afilename:files)
         {
-           fileInputStream= new FileInputStream(afilename);
-            bytes = new byte[fileInputStream.available()];
+         FileInputStream  fileInputStream= new FileInputStream(afilename);
+          byte[]  bytes = new byte[fileInputStream.available()];
             fileInputStream.read(bytes);
             fileInputStream.close();
             fileOutputStream.write(bytes);
