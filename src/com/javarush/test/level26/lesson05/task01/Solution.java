@@ -34,7 +34,7 @@ public class Solution extends Thread {
         new Solution(new Runnable() {
             @Override
             public void run() {
-                System.out.println("test JavaRush Runnable for Solution class");
+                System.out.println("tests JavaRush Runnable for Solution class");
             }
         }).start();
 

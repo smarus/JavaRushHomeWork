@@ -32,7 +32,7 @@ public class Solution
         TreeMap<String, Double> map = new TreeMap<String, Double>();
         FileReader fileReader = new FileReader(args[0]);
 
-//        FileReader fileReader = new FileReader("/home/user/java_test/test");
+//        FileReader fileReader = new FileReader("/home/user/java_test/tests");
 
         BufferedReader rd = new BufferedReader(fileReader);
 

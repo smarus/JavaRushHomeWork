@@ -9,7 +9,7 @@ import java.util.Locale;
 public class CashMachine
 {
 
-    public static final String RESOURCE_PATH = "com.javarush.test.level26.lesson15.big01.resources.";
+    public static final String RESOURCE_PATH = "com.javarush.tests.level26.lesson15.big01.resources.";
 
     public static void main(String[] args) throws IOException
     {

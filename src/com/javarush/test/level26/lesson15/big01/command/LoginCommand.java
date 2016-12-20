@@ -6,9 +6,7 @@ import com.javarush.test.level26.lesson15.big01.exception.InterruptOperationExce
 
 import java.util.ResourceBundle;
 
-/**
- * Created by Alex on 11.05.2014.
- */
+
 public class LoginCommand implements Command
 {
     private ResourceBundle validCreditCards = ResourceBundle.getBundle(CashMachine.RESOURCE_PATH + "verifiedCards");

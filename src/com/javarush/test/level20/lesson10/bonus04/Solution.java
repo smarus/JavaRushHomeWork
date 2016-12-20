@@ -477,7 +477,7 @@ public class Solution extends AbstractList<String> implements List<String>, Clon
         System.out.println("Check isEmpty: " + listTree.isEmpty() + " Size: " + listTree.size());
         List<String> list2222 = new Solution();
         System.out.println("Check isEmpty: " + list2222.isEmpty() + " Size: " + list2222.size());
-        list2222.add("test");
+        list2222.add("tests");
         System.out.println("Check isEmpty: " + list2222.isEmpty() + " Size: " + list2222.size());
         List<String> list1111 = new Solution();
         System.out.println("Check isEmpty: " + list1111.isEmpty() + " Size: " + list1111.size());
@@ -551,11 +551,11 @@ public class Solution extends AbstractList<String> implements List<String>, Clon
         System.out.println("Size array = " + list.size() + " expected = 22");
         System.out.println();
 
-        System.out.println("=============== Clone test ==================");
+        System.out.println("=============== Clone tests ==================");
 
         System.out.println("Object: " + list + " --> Size = " + list.size());
         Solution sol = list.clone();
-        //list.remove("7"); //Select for test
+        //list.remove("7"); //Select for tests
         System.out.println("Clone object: " + sol + " --> Size = " + sol.size());
         System.out.println("Result: " + list.containsAll(sol));
 
@@ -564,7 +564,7 @@ public class Solution extends AbstractList<String> implements List<String>, Clon
         add.addAll(sol);
         System.out.println(add + " --> Size: " + add.size() + " = " + sol.size());
 
-        System.out.println("=============== Iterator test ===============");
+        System.out.println("=============== Iterator tests ===============");
         Iterator<String> itr = list.iterator();
         while (itr.hasNext()) {
             String a = itr.next();
@@ -579,7 +579,7 @@ public class Solution extends AbstractList<String> implements List<String>, Clon
                 itr2.remove();
             }
         }
-        System.out.println("For test " + list + " --> Size = " + list.size());
+        System.out.println("For tests " + list + " --> Size = " + list.size());
         System.out.println("Collect size " + list.size() + " Expected 21");
 
         System.out.println("\n===== SERIALIZATION and DESERIALIZATION =====");
@@ -600,7 +600,7 @@ public class Solution extends AbstractList<String> implements List<String>, Clon
         System.out.println(" Deserializable done");
         System.out.println("Collect after deserializable " + list2);
 
-        System.out.println("\n================ Clear test =================");
+        System.out.println("\n================ Clear tests =================");
         System.out.println("Before: " + listTree);
         listTree.clear();
         System.out.println("After clear: " + listTree + (listTree.isEmpty() ? " OK" : " Badly"));

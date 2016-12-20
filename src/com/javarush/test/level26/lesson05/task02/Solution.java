@@ -17,7 +17,7 @@ public class Solution {
             @Override
             public void run() {
                 System.out.println("A");
-                throw new RuntimeException("it's test");
+                throw new RuntimeException("it's tests");
             }
         }, 1_000, TimeUnit.MILLISECONDS
         );
